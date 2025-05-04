@@ -33,8 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.10.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvUtils">
+      <HintPath>..\..\..\..\USERA\Documents\C#\CsvUtils\bin\Debug\CsvUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="CSV_Libary">
+      <HintPath>..\CSV_Libary\bin\Debug\CSV_Libary.dll</HintPath>
+    </Reference>
+    <Reference Include="GroupUtils">
+      <HintPath>..\..\..\..\USERA\Documents\C#\GroupUtils\bin\Debug\GroupUtils.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,12 +62,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributies\ComboBoxAttribute.cs" />
+    <Compile Include="Attributies\GroupByAttribute.cs" />
+    <Compile Include="Attributies\HideAttribute.cs" />
+    <Compile Include="Attributies\PictureAttribute.cs" />
+    <Compile Include="Attributies\WhereAttribute.cs" />
+    <Compile Include="Chart\AChart.cs" />
+    <Compile Include="Chart\LineChartBuilder.cs" />
+    <Compile Include="Chart\StackedColumn100ChartBuilder.cs" />
+    <Compile Include="Components\ImgDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ImgDialog.Designer.cs">
+      <DependentUpon>ImgDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\NavBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Components\NavBar.Designer.cs">
       <DependentUpon>NavBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contract\AccountContract.cs" />
+    <Compile Include="Contract\ChartAnalyzeContract.cs" />
+    <Compile Include="Contract\LedgerAnalyzeContract.cs" />
+    <Compile Include="Contract\NoteContract.cs" />
+    <Compile Include="Interface\IChartBuilder.cs" />
+    <Compile Include="Models\ChartType.cs" />
+    <Compile Include="Models\GroupModel.cs" />
+    <Compile Include="Presenter\AccountPresenter.cs" />
+    <Compile Include="Presenter\ChartAnalyzePresenter.cs" />
+    <Compile Include="Presenter\LedgerAnalyzePresenter.cs" />
+    <Compile Include="Repository\DataRepository.cs" />
+    <Compile Include="Debounce.cs" />
+    <Compile Include="Expansion.cs" />
     <Compile Include="Forms\FormType.cs" />
     <Compile Include="Forms\SingletonForm.cs" />
     <Compile Include="Forms\圖表分析.cs">
@@ -78,8 +121,19 @@
     <Compile Include="Forms\記帳本.Designer.cs">
       <DependentUpon>記帳本.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IDataRepository.cs" />
+    <Compile Include="Models\DataModel.cs" />
+    <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="Presenter\NotePresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="Chart\PieChartBuilder.cs" />
+    <Compile Include="Utility\Utility.cs" />
+    <Compile Include="Utility\ChartBuilder.cs" />
+    <EmbeddedResource Include="Components\ImgDialog.resx">
+      <DependentUpon>ImgDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\NavBar.resx">
       <DependentUpon>NavBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +158,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,5 +172,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

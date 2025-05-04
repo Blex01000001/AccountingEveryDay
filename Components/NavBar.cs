@@ -19,7 +19,8 @@ namespace AccountingEveryDay.Components
         {
             InitializeComponent();
             Assembly assembly = Assembly.GetExecutingAssembly();
-            Type[] filteredTypes = assembly.GetTypes().Where(x => x.IsSubclassOf(typeof(Form))).ToArray();
+            //  x.IsSubclassOf(typeof(Form))
+            Type[] filteredTypes = assembly.GetTypes().Where(x =>x.BaseType == typeof(Form)  && x.FullName.Contains("Forms") ).ToArray();
 
             for (int i = 0; i < filteredTypes.Length; i++)
             {
@@ -48,6 +49,11 @@ namespace AccountingEveryDay.Components
         {
             Button button = flowLayoutPanel1.Controls.OfType<Button>().First(x => x.Text == formText);
             button.Enabled = false;
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
